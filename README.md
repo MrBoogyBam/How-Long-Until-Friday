@@ -1,1 +1,1 @@
-# How-Long-Until-Friday
+# How Long Until Friday
