@@ -1,8 +1,11 @@
 let timer = document.getElementById("timer");
 
+let now;
+let nextFridate;
+
 let timerFunc = setInterval(function() {
-    let now = new Date();
-    let nextFridate = new Date(now.getUTCFullYear().toString() + "-" + (now.getUTCMonth() + 1) + "-" + (now.getDate() - now.getDay() + 5));
+    now = new Date();
+    nextFridate = new Date(now.getUTCFullYear().toString() + "-" + (now.getUTCMonth() + 1) + "-" + (now.getDate() - now.getDay() + 5));
     let msTillFriday = nextFridate.getTime() - now.getTime();
 
     let days = Math.floor(msTillFriday / (1000 * 60 * 60 * 24));
