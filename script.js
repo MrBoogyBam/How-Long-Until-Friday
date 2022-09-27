@@ -18,10 +18,17 @@
 
 let now = new Date();
 
-let nextFridate = new Date(now.getUTCFullYear().toString() + "-" + now.getUTCMonth() + "-" + (now.getDate() - now.getDay() + 5));
+let nextFridate;
+
+if (now.getDay() > 5) {
+    nextFridate = new Date(now.getUTCFullYear().toString() + "-" + (now.getMonth() + 1) + "-" + (now.getDate() + 1 + 5));
+} else {
+    nextFridate = new Date(now.getUTCFullYear().toString() + "-" + (now.getMonth() + 1) + "-" + (now.getDate() - now.getDay() + 5));
+}
 
 // We don't actually want the utc hours to be at 0, because then for the timer it's going to say that it's friday when for EDT it will actually be 8 pm thursday for you...
 // So this is already the localized next friday time
 // nextFridate.setUTCHours(0, 0, 0, 0);
 
 console.log(nextFridate);
+console.log(now);
