@@ -1,27 +1,14 @@
-// let timerFunc = setInterval(function() {
-//     let friday = new Date()
+let timer = document.getElementById("timer");
 
-//     let now = new Date().getTime();
+let timerFunc = setInterval(function() {
+    let now = new Date();
+    let nextFridate = new Date(now.getUTCFullYear().toString() + "-" + (now.getUTCMonth() + 1) + "-" + (now.getDate() - now.getDay() + 5));
+    let msTillFriday = nextFridate.getTime() - now.getTime();
 
-//     if(dayCurr == 6) {
-//         console.log(`There are 6 days until friday`);
-//         return;
-//     }
+    let days = Math.floor(msTillFriday / (1000 * 60 * 60 * 24));
+    let hours = Math.floor((msTillFriday % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+    let minutes = Math.floor((msTillFriday % (1000 * 60 * 60)) / (1000 * 60));
+    let seconds = Math.floor((msTillFriday % (1000 * 60)) / 1000);
 
-//     for(i=0; i < 5; i++) {
-//         if(i + dayCurr == 5) {
-//             console.log(`There are ${i} days until friday.`);
-//             return;
-//         }
-//     }
-// }, 1);
-
-let now = new Date();
-
-let nextFridate = new Date(now.getUTCFullYear().toString() + "-" + now.getUTCMonth() + "-" + (now.getDate() - now.getDay() + 5));
-
-// We don't actually want the utc hours to be at 0, because then for the timer it's going to say that it's friday when for EDT it will actually be 8 pm thursday for you...
-// So this is already the localized next friday time
-// nextFridate.setUTCHours(0, 0, 0, 0);
-
-console.log(nextFridate);
+    timer.innerHTML = `${days}d ${hours}h ${minutes}m ${seconds}s`;
+}, 1);
