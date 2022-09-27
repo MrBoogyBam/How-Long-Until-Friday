@@ -15,14 +15,13 @@
 //         }
 //     }
 // }, 1);
+
 let now = new Date();
 
-let nextFriday = new Date(
-    now.setDate(
-        now.getDate() + ((7 - now.getDay() + 5) % 7 || 7)
-    )
-);
+let nextFridate = new Date(now.getUTCFullYear().toString() + "-" + now.getUTCMonth() + "-" + (now.getDate() - now.getDay() + 5));
 
-nextFriday.setHours(0, 0, 0, 0);
+// We don't actually want the utc hours to be at 0, because then for the timer it's going to say that it's friday when for EDT it will actually be 8 pm thursday for you...
+// So this is already the localized next friday time
+// nextFridate.setUTCHours(0, 0, 0, 0);
 
-console.log(nextFriday);
+console.log(nextFridate);
