@@ -5,6 +5,13 @@ let now;
 let nextFridate;
 let msTillFriday;
 let msTillFridayStr;
+
+let days;
+let hours;
+let minutes;
+let seconds;
+let milliseconds;
+
 let wokeUp = false;
 
 let timerFunc = setInterval(function() {
@@ -25,21 +32,21 @@ let timerFunc = setInterval(function() {
 
   
   
-  let days = ('0' + Math.floor(msTillFriday / (1000 * 60 * 60 * 24))).slice(-2);
-  let hours = ('0' + Math.floor((msTillFriday % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60))).slice(-2);
-  let minutes = ('0' + Math.floor((msTillFriday % (1000 * 60 * 60)) / (1000 * 60))).slice(-2);
-  let seconds = ('0' + Math.floor((msTillFriday % (1000 * 60)) / 1000)).slice(-2);
-  let milliseconds = msTillFridayStr.slice(msTillFridayStr.length - 3);
+  days = ('0' + Math.floor(msTillFriday / (1000 * 60 * 60 * 24))).slice(-2);
+  hours = ('0' + Math.floor((msTillFriday % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60))).slice(-2);
+  minutes = ('0' + Math.floor((msTillFriday % (1000 * 60 * 60)) / (1000 * 60))).slice(-2);
+  seconds = ('0' + Math.floor((msTillFriday % (1000 * 60)) / 1000)).slice(-2);
+  milliseconds = msTillFridayStr.slice(msTillFridayStr.length - 3);
 
   timer.innerHTML = `${days}:${hours}:${minutes}:${seconds}.${milliseconds}`;
 }, 1);
 
 function WakeUp(isFriday) {
   if(isFriday == true) {
-    guy.src = "./Videos/Friday.mp4";
+    guy.src = "./Media/Friday.mp4";
     guy.play();
   } else {
-    guy.src = "./Videos/Day.mp4";
+    guy.src = "./Media/Day.mp4";
     guy.play();
   }
 }
