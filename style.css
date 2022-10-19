@@ -1,39 +1,39 @@
 @font-face {
-    font-family: sevenSegment;
-    src: url(./Fonts/digital-7.mono.ttf);
-  }
-  
-  * {
-      color: white;
-      text-align: center;
-  }
-  
-  body {
-      background-color: rgb(28, 28, 37);
-  }
-  
-  #week-guy {
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      height: 100%;
-      width: 100%;
-      opacity: 50%;
-      z-index: -1;
-  }
-  
-  .timer-div {
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      font-size: 60px;
-  }
-  
-  #timer {
-      font-family: SevenSegment;
-      position: relative;
-      top: -50px;
-      font-size: 70px;
-  }
+  font-family: sevenSegment;
+  src: url(./Fonts/digital-7.mono.ttf);
+}
+
+* {
+    color: white;
+    text-align: center;
+}
+
+body {
+    background-color: rgb(28, 28, 37);
+}
+
+#week-guy {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    height: 100%;
+    width: 100%;
+    opacity: 50%;
+    z-index: -1;
+}
+
+.timer-div {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 60px;
+}
+
+#timer {
+    font-family: SevenSegment;
+    position: relative;
+    top: -50px;
+    font-size: 70px;
+}
