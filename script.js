@@ -1,5 +1,6 @@
 let timer = document.getElementById("timer");
-let guy = document.getElementById("week-guy");
+let video = document.getElementById("bedcam");
+let audio = document.getElementById("week-song");
 
 let now;
 let nextFridate;
@@ -31,7 +32,7 @@ let timerFunc = setInterval(function() {
   }
 
   // We'll have this segment of code to you by friday
-  
+
   days = ('0' + Math.floor(msTillFriday / (1000 * 60 * 60 * 24))).slice(-2);
   hours = ('0' + Math.floor((msTillFriday % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60))).slice(-2);
   minutes = ('0' + Math.floor((msTillFriday % (1000 * 60 * 60)) / (1000 * 60))).slice(-2);
@@ -43,10 +44,14 @@ let timerFunc = setInterval(function() {
 
 function WakeUp(isFriday) {
   if(isFriday == true) {
-    guy.src = "./Media/Friday.mp4";
-    guy.play();
+    video.src = "./Media/Friday.mp4";
+    video.play();
+    audio.src = "./Media/Full-Friday-Song.webm"
+    audio.play();
   } else {
-    guy.src = "./Media/Day.mp4";
-    guy.play();
+    video.src = "./Media/otherday.mp4";
+    video.play();
+    audio.src = "./Media/otherday.m4a"
+    audio.play();
   }
 }
