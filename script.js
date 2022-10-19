@@ -8,7 +8,7 @@ let msTillFridayStr;
 
 let timerFunc = setInterval(function() {
   now = new Date();
-  nextFridate = new Date(now.getUTCFullYear().toString() + "-" + (now.getUTCMonth() + 1) + "-" + (now.getDate() - now.getDay() + 5));
+  nextFridate = new Date(now.getUTCFullYear().toString() + "-" + (now.getUTCMonth() + 1) + "-" + (now.getDate() - now.getDay() + 5) + "T00:00");
   msTillFriday = nextFridate.getTime() - now.getTime();
   msTillFridayStr = msTillFriday.toString();
 
