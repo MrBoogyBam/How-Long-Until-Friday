@@ -30,7 +30,7 @@ let timerFunc = setInterval(function() {
     }
   }
 
-  
+  // We'll have this segment of code to you by friday
   
   days = ('0' + Math.floor(msTillFriday / (1000 * 60 * 60 * 24))).slice(-2);
   hours = ('0' + Math.floor((msTillFriday % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60))).slice(-2);
