@@ -1,10 +1,11 @@
 let timer = document.getElementById("timer");
-let video = document.getElementById("week-guy");
+let guy = document.getElementById("week-guy");
 
 let now;
 let nextFridate;
 let msTillFriday;
 let msTillFridayStr;
+let wokeUp = false;
 
 let timerFunc = setInterval(function() {
   now = new Date();
@@ -14,8 +15,16 @@ let timerFunc = setInterval(function() {
 
   if (msTillFriday <= 0) {
     msTillFriday = 0;
+    msTillFridayStr = "000";
+
+    if(wokeUp == false) {
+      WakeUp(true);
+      wokeUp = true;
+    }
   }
 
+  
+  
   let days = ('0' + Math.floor(msTillFriday / (1000 * 60 * 60 * 24))).slice(-2);
   let hours = ('0' + Math.floor((msTillFriday % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60))).slice(-2);
   let minutes = ('0' + Math.floor((msTillFriday % (1000 * 60 * 60)) / (1000 * 60))).slice(-2);
@@ -24,3 +33,13 @@ let timerFunc = setInterval(function() {
 
   timer.innerHTML = `${days}:${hours}:${minutes}:${seconds}.${milliseconds}`;
 }, 1);
+
+function WakeUp(isFriday) {
+  if(isFriday == true) {
+    guy.src = "./Videos/Friday.mp4";
+    guy.play();
+  } else {
+    guy.src = "./Videos/Day.mp4";
+    guy.play();
+  }
+}
